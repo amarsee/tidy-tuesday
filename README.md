@@ -1,2 +1,3 @@
 # tidy-tuesday
-Andrew Marsee's repo for #tidy
+
+Where I will be keeping my work for #TidyTuesday projects
