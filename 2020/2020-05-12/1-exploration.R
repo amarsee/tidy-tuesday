@@ -1,8 +1,9 @@
 library(readxl)
 library(tidyverse)
+library(tmap)
 
 volcano <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/volcano.csv')
-eruptions <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/eruptions.csv')
+eruptions <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/eruptions.csv') 
 events <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/events.csv')
 tree_rings <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/tree_rings.csv')
 sulfur <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/sulfur.csv')
@@ -15,3 +16,19 @@ most_confirmed_country <- eruptions %>%
   summarise(
     n_eruptions = n()
   )
+
+# ============= Plot of eruptions ===============
+data("World")
+
+tmap_mode('view')
+tm_shape(World) + 
+  
+
+
+
+
+
+
+
+
+
