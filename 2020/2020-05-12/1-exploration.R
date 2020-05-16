@@ -19,12 +19,17 @@ most_confirmed_country <- eruptions %>%
   )
 
 # ============= Plot of eruptions ===============
-eruptions_sf <- st_as_sf(eruptions, coords = c("longitude","latitude"), remove = FALSE)
-# data("World")
+eruptions_sf <- st_as_sf(eruptions %>% filter(!is.na(vei)), coords = c("longitude","latitude"), remove = FALSE)
+data("World")
 
-tmap_mode('view')
+# tmap_mode('view')
+tmap_mode("plot")
+tm_shape(World) +
+  tm_polygons() +
 tm_shape(eruptions_sf) + 
-  tm_symbols(col = 'red', size = 'vei', scale = 1)
+  tm_symbols(col = 'red', size = 'vei', scale = 1.25, alpha = 0.1) + 
+  tm_layout(legend.outside.position =  "bottom",
+            asp=1.1)
 
 
 
