@@ -1,6 +1,7 @@
 library(readxl)
 library(tidyverse)
 library(tmap)
+library(sf)
 
 volcano <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/volcano.csv')
 eruptions <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/eruptions.csv') 
@@ -18,11 +19,12 @@ most_confirmed_country <- eruptions %>%
   )
 
 # ============= Plot of eruptions ===============
-data("World")
+eruptions_sf <- st_as_sf(eruptions, coords = c("longitude","latitude"), remove = FALSE)
+# data("World")
 
 tmap_mode('view')
-tm_shape(World) + 
-  
+tm_shape(eruptions_sf) + 
+  tm_symbols(col = 'red', size = 'vei', scale = 1)
 
 
 
