@@ -7,6 +7,7 @@ vb_matches <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience
 
 summary(vb_matches)
 
+colSums(is.na(vb_matches))
 
 
 
