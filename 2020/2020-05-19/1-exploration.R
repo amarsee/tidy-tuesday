@@ -9,5 +9,12 @@ summary(vb_matches)
 
 colSums(is.na(vb_matches))
 
+avp_winning_teams <- vb_matches %>% 
+  mutate(team_name = paste(w_player1, w_player2, sep = '/')) %>% 
+  filter(circuit == 'AVP') %>% 
+  group_by(team_name, year) %>% 
+  summarise(
+    n_wins = n()
+  )
 
 
