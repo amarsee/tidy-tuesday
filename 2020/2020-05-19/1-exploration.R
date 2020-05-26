@@ -17,4 +17,9 @@ avp_winning_teams <- vb_matches %>%
     n_wins = n()
   )
 
+avp_winning_since_2002 <- avp_winning_teams %>% 
+  group_by(team_name) %>% 
+  summarise(
+    n_wins = sum(n_wins)
+  )
 
